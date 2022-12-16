@@ -1,5 +1,5 @@
 import {BlogDetail, BlogPost} from '../types/blog'
-import {discussionDetailGql, discusstionGql} from './gql'
+import {discussionDetailGql, discussionGql } from './gql'
 
 const API_URL = 'https://api.github.com/graphql'
 const GH_ACCESS_TOKEN = process.env.GH_ACCESS_TOKEN
@@ -12,10 +12,10 @@ export async function getBlogs(): Promise<BlogPost[]> {
       Authorization: `token ${GH_ACCESS_TOKEN}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({query: discusstionGql(DISCUSSION_CATEGORY_ID)}),
+    body: JSON.stringify({query: discussionGql(DISCUSSION_CATEGORY_ID)}),
   })
   let res = await response.json()
-  const discussions = res.data.repository.discussions.nodes
+  const discussions = await res.data.repository.discussions.nodes
   const posts = discussions.map((discussion: any): BlogPost => {
     const {
       title,

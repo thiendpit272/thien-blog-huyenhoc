@@ -93,7 +93,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       }
     }
   }
-  console.log(blogs)
+  console.log(tags)
   return {
     props: {
       blogData: blogs,

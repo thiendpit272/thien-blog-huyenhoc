@@ -1,14 +1,12 @@
-export function discusstionGql(
-  githubDiscusstionCategoryId: string | undefined
-) {
+export function discussionGql(ghDiscussionCategoryId: string | undefined) {
   return `{
     repository(owner: "thiendpit272", name: "thien-blog-huyenhoc") {
-      discussions(first: 100, categoryId: "${githubDiscusstionCategoryId}") {
+      discussions(first: 100, categoryId: "${ghDiscussionCategoryId}") {
         nodes {
           title
           url
-          bodyText
           number
+          bodyText
           bodyHTML
           createdAt
           lastEditedAt
@@ -24,9 +22,8 @@ export function discusstionGql(
         }
       }
     }
-  }`
+    }`
 }
-
 //single post
 // Single post
 export function discussionDetailGql(postId: number | undefined) {
