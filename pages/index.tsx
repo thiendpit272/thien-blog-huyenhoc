@@ -61,7 +61,7 @@ const Home: NextPage = ({
         {filteredBlog.map((blog: BlogPost) => {
           return (
             <div
-              className="max-w-[28em] max-h-[20em] overflow-hidden mx-6 bg-neutral-300 text-zinc-800 rounded-lg p-4 hover:bg-slate-800 hover:text-neutral-500 transition-all duration-300"
+              className="max-w-[28em] max-h-[20em] overflow-hidden mx-6 bg-neutral-300 text-zinc-800 rounded-lg p-4 hover:bg-slate-800 hover:text-neutral-500 transition-all duration-300 mb-3"
               key={blog.id}
             >
               <a href={blog.url} target="_blank" rel="noreferrer">
